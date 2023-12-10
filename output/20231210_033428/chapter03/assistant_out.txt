@@ -1,0 +1,57 @@
+[出力物タイトル]
+教材タイトル
+[出力物内容]
+"Designing Deep Learning Models with PyTorch"
+
+[出力物タイトル]
+教材概要
+[出力物内容]
+このセクションでは、PyTorchを使用して深層学習モデルを設計する方法について学びます。具体的には、ニューラルネットワークの基本的な概念、PyTorchにおけるモデルの定義と構築、そして自分自身のモデルを設計する方法について学びます。
+
+[出力物タイトル]
+教材テキスト
+[出力物内容]
+```
+1. Introduction to Neural Networks
+2. Understanding the basic components of Neural Networks (Neurons, Weights, Activations, Loss function)
+3. Introduction to PyTorch
+4. Building a Neural Network Model using PyTorch (Sequential and Module)
+5. Understanding the structure of PyTorch models (forward method, backward propagation)
+6. Designing a custom model for predicting future trends in Yamanashi
+```
+
+[出力物タイトル]
+サンプルコード
+[出力物内容]
+```python
+# Import libraries
+import torch
+import torch.nn as nn
+
+# Define a neural network model
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.fc1 = nn.Linear(10, 5)
+        self.fc2 = nn.Linear(5, 1)
+
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+
+# Instantiate the model
+model = Net()
+print(model)
+```
+
+[出力物タイトル]
+作業手順
+[出力物内容]
+```
+1. Start by importing necessary PyTorch libraries.
+2. Define a neural network model by creating a class `Net` that inherits from `nn.Module`.
+3. In the `__init__` method, define the layers you want in your model.
+4. In the `forward` method, define the forward pass of your model.
+5. Instantiate your model and print it to check its structure.
+```
