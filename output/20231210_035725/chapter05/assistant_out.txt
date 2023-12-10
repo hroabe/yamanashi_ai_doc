@@ -1,0 +1,83 @@
+[出力物タイトル]
+教材タイトル
+
+[出力物内容]
+"AIを用いた山梨の収穫時期判定システムの完成"
+
+[出力物タイトル]
+教材概要
+
+[出力物内容]
+この教材では、AIを用いて山梨の収穫時期を判定するシステムの完成を目指します。具体的には、PyTorchを用いて山梨の写真から特徴を抽出し、その特徴が収穫時期を示すものであるかを判定します。そして、その結果をFastAPIを用いてWebアプリケーション上に表示します。最終的には、このシステムを用いて山梨の最適な収穫時期をAIが判定することを目指します。
+
+[出力物タイトル]
+教材テキスト
+
+[出力物内容]
+1. まずは、PyTorchを用いて山梨の画像から特徴を抽出します。これにはConvolutional Neural Network(CNN)を用いて、画像から特徴を抽出することを学びます。
+2. 次に、抽出した特徴が山梨の収穫時期を示すものであるかを判定します。この判定には、抽出した特徴を入力とするニューラルネットワークを設計します。
+3. 最後に、FastAPIを用いてWebアプリケーションを開発します。このWebアプリケーションでは、山梨の写真をアップロードし、その写真からAIが収穫時期を判定し、結果を表示する機能を実装します。
+
+[出力物タイトル]
+サンプルコード
+
+[出力物内容]
+```
+# PyTorchでの特徴抽出と判定
+import torch
+from torchvision import models, transforms
+from PIL import Image
+
+# モデルの読み込み
+model = models.resnet50(pretrained=True)
+
+# 画像の前処理
+preprocess = transforms.Compose([
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
+
+# 画像の読み込み
+img = Image.open("yamanashi.jpg")
+img_t = preprocess(img)
+
+# モデルの予測
+model.eval()
+with torch.no_grad():
+    prediction = model(img_t.unsqueeze(0))
+
+# FastAPIでのWebアプリケーション作成
+from fastapi import FastAPI, UploadFile, File
+from fastapi.responses import HTMLResponse
+
+app = FastAPI()
+
+@app.post("/predict/")
+async def predict(file: UploadFile = File(...)):
+    # 画像の読み込みと前処理
+    img = Image.open(file.file)
+    img_t = preprocess(img)
+    
+    # モデルの予測
+    model.eval()
+    with torch.no_grad():
+        prediction = model(img_t.unsqueeze(0))
+    
+    # 結果の表示
+    return {"Harvest time": prediction}
+```
+
+[出力物タイトル]
+作業手順
+
+[出力物内容]
+1. 上記のサンプルコードを任意のエディタにコピーします。
+2. "yamanashi.jpg"の部分を分析したい山梨の写真のファイル名に変更します。
+3. コードを実行します。
+4. ブラウザを開き、"localhost:8000/predict/"にアクセスします。
+5. "Choose File"ボタンをクリックし、分析したい山梨の写真を選択します。
+6. "Open"ボタンをクリックします。
+7. "Upload"ボタンをクリックします。
+8. 画面に表示された結果が、AIが判定した山梨の収穫時期です。
