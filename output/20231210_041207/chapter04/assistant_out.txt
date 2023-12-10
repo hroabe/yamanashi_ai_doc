@@ -1,0 +1,73 @@
+以下、指示に従い"FastAPIでのWebAPI作成"の教材を作成します。
+
+[出力物タイトル]
+教材タイトル
+[出力物内容]
+FastAPIでのWebAPI作成
+
+[出力物タイトル]
+教材概要
+[出力物内容]
+この教材では、Pythonの高速なAPIフレームワークFastAPIを用いて、WebAPIを作成します。FastAPIの基本的な使用方法から、APIのルーティング、リクエスト・レスポンスのハンドリングまでを学習します。
+
+[出力物タイトル]
+教材テキスト
+[出力物内容]
+1. FastAPIのインストール
+FastAPIはpipを用いて簡単にインストールできます。
+```
+pip install fastapi
+```
+
+2. FastAPIアプリケーションの作成
+FastAPIをインポートし、FastAPIのインスタンスを作成します。
+```python
+from fastapi import FastAPI
+app = FastAPI()
+```
+
+3. ルート(/)へのGETリクエストを作成
+以下のようにデコレータを用いて、ルート(/)へのGETリクエストを作成します。
+```python
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+```
+
+4. APIの起動
+FastAPIアプリケーションはuvicornを用いて起動します。
+```
+uvicorn main:app --reload
+```
+
+上記はFastAPIの基本的な使用方法です。さらに詳しく学びたい方は公式ドキュメントを参照してください。
+
+[出力物タイトル]
+サンプルコード
+[出力物内容]
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+```
+
+[出力物タイトル]
+作業手順
+[出力物内容]
+1. まずはFastAPIをインストールします。コマンドラインに以下のコマンドを入力してください。
+```
+pip install fastapi
+```
+2. 次に、FastAPIアプリケーションを作成します。Pythonファイル（例: main.py）を作成し、上記のサンプルコードをコピーペーストしてください。
+3. 最後に、FastAPIアプリケーションを起動します。コマンドラインに以下のコマンドを入力してください。
+```
+uvicorn main:app --reload
+```
+4. ウェブブラウザを開き、`http://localhost:8000/`にアクセスして、`{"Hello": "World"}`が表示されることを確認してください。
+5. FastAPIでのWebAPI作成の基本は以上です。公式ドキュメントを参照しながら、より複雑なAPIを作成してみてください。
+
+以上で"FastAPIでのWebAPI作成"の教材は終了です。この教材を通してFastAPIの基本的な使用方法を理解し、WebAPIを作成できるようになることを目指します。
