@@ -1,0 +1,44 @@
+[出力物タイトル]
+教材タイトル
+[出力物内容]
+3. データ取得
+
+[出力物タイトル]
+教材概要
+[出力物内容]
+このセッションでは、FastAPIを用いて、外部APIから武田信玄の戦術データを取得します。APIからのデータ取得方法や、データの形式、FastAPIでのリクエストの送信方法を学びます。
+
+[出力物タイトル]
+教材テキスト
+[出力物内容]
+1. APIとは何か、その役割と使い方について学習します。
+2. FastAPIを用いてAPIからデータを取得する方法について学習します。
+3. 取得したデータの形式や扱い方について学習します。
+
+[出力物タイトル]
+サンプルコード
+[出力物内容]
+以下にFastAPIを用いてAPIからデータを取得するサンプルコードを記載します。
+
+```python
+from fastapi import FastAPI
+import requests
+
+app = FastAPI()
+
+@app.get("/get_tactics")
+def get_tactics():
+    response = requests.get("https://api.takeda_shingen_tactics.com/v1/tactics")
+    data = response.json()
+    return data
+```
+
+[出力物タイトル]
+作業手順
+[出力物内容]
+1. まずFastAPIをインストールします。コマンドラインに`pip install fastapi`と入力し、Enterを押してください。
+2. 次にサンプルコードをPythonファイルにコピーします。新しくPythonファイルを作成し、その中にサンプルコードを貼り付けてください。
+3. Pythonファイルを保存したら、コマンドラインに`uvicorn main:app --reload`と入力し、Enterを押してください。ここで`main`はあなたが作成したPythonファイルの名前です。
+4. ブラウザを開き、`http://localhost:8000/get_tactics`にアクセスしてください。正しくAPIからデータが取得できていれば、戦術データが表示されます。
+
+以上でデータの取得は完了です。次のセッションでは、このデータを用いて分析を行います。
