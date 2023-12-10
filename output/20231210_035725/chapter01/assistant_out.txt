@@ -1,0 +1,68 @@
+[出力物タイトル]
+教材タイトル
+
+[出力物内容]
+FastAPIとPyTorchの基本
+
+[出力物タイトル]
+教材概要
+
+[出力物内容]
+この教材ではWebAPIの開発に使われるFastAPIと、深層学習ライブラリのPyTorchの基本的な使い方を学びます。FastAPIの基本的な使い方とRESTful APIの設計について学び、PyTorchでのテンソル操作や基本的なネットワークの構築方法を学びます。
+
+[出力物タイトル]
+教材テキスト
+
+[出力物内容]
+1. FastAPIの基本
+FastAPIはPythonで書かれた、モダンで高速（高性能）なWebフレームワークで、非常に直感的で簡単に使用することができます。FastAPIを使用して、HTTPリクエストを受け取り、適切なレスポンスを返す方法を学びます。
+
+2. RESTful APIの設計
+RESTful APIは、ウェブサイトのデータをJSONなどの形式で提供するAPIの設計スタイルです。RESTful APIの設計原則について学び、FastAPIを使用して簡単なAPIを作成します。
+
+3. PyTorchの基本
+PyTorchはPythonで書かれたオープンソースの機械学習ライブラリで、テンソル計算と深層学習をサポートしています。PyTorchでのテンソル操作や基本的なネットワークの構築方法を学びます。
+
+[出力物タイトル]
+サンプルコード
+
+[出力物内容]
+```Python
+# FastAPIの基本
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+# PyTorchの基本
+import torch
+
+# テンソルの作成
+x = torch.tensor([1.0, 2.0, 3.0])
+print(x)
+
+# ネットワークの定義
+class Net(torch.nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.fc1 = torch.nn.Linear(3, 3)
+
+    def forward(self, x):
+        x = self.fc1(x)
+        return x
+
+net = Net()
+print(net)
+```
+
+[出力物タイトル]
+作業手順
+
+[出力物内容]
+1. FastAPIとPyTorchのインストール
+2. FastAPIでのルーティングとレスポンスを学習
+3. RESTful APIの設計原則を学習
+4. PyTorchでのテンソルの操作とネットワークの構築を学習
+5. 上記のサンプルコードを実行して確認
