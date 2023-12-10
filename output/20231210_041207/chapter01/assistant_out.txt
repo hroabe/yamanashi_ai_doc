@@ -1,0 +1,65 @@
+[出力物タイトル]
+教材タイトル
+
+[出力物内容]
+"FastAPIとOpenCVの基礎"
+
+[出力物タイトル]
+教材概要
+
+[出力物内容]
+この教材では、PythonでWeb APIを作成するためのFastAPIと、画像解析ライブラリであるOpenCVの基本的な使い方を学びます。FastAPIを使ったWeb APIの作成と、OpenCVを使った画像解析の基本を理解することが目標です。
+
+[出力物タイトル]
+教材テキスト
+
+[出力物内容]
+1. FastAPIの基本
+    - FastAPIとは何か、その特徴
+    - FastAPIのインストール方法
+    - FastAPIを用いた簡単なWeb APIの作成
+2. OpenCVの基本
+    - OpenCVとは何か、その特徴
+    - OpenCVのインストール方法
+    - OpenCVで画像を読み込み、表示する基本的なコード
+
+[出力物タイトル]
+サンプルコード
+
+[出力物内容]
+```python
+# FastAPIのインストール
+!pip install fastapi
+
+# FastAPIの基本的な使い方
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+# OpenCVのインストール
+!pip install opencv-python-headless
+
+# OpenCVの基本的な使い方
+import cv2
+
+# 画像の読み込み
+img = cv2.imread('sample.jpg')
+
+# 画像の表示
+cv2.imshow('image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+[出力物タイトル]
+作業手順
+
+[出力物内容]
+1. FastAPIとOpenCVをインストールします。
+2. FastAPIを用いて簡単なWeb APIを作成します。上記のサンプルコードを参考にしてください。
+3. OpenCVで画像を読み込み、表示します。上記のサンプルコードを参考にしてください。
+
