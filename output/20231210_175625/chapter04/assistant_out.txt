@@ -1,0 +1,44 @@
+[出力物タイトル]
+教材タイトル
+[出力物内容]
+「観光データの分析結果をDjangoでウェブ表示する」
+
+[出力物タイトル]
+教材概要
+[出力物内容]
+本教材では、Pandasを使って分析した山梨県の観光データをDjangoを使ってウェブ上で表示する方法を学びます。データの可視化やウェブアプリケーションの作成方法について理解を深めます。
+
+[出力物タイトル]
+教材テキスト
+[出力物内容]
+1. Djangoのビューとテンプレートについて学びます。
+2. Pandasで分析したデータをDjangoのビューで使えるようにします。
+3. データをテンプレートで表示する方法を学びます。
+
+[出力物タイトル]
+サンプルコード
+[出力物内容]
+```python
+from django.shortcuts import render
+import pandas as pd
+
+def index(request):
+    # Pandasでデータを分析
+    df = pd.read_csv('tourist_data.csv')
+    analyzed_data = df['visitors'].mean()
+
+    # 分析結果をテンプレートに渡す
+    return render(request, 'index.html', {'analyzed_data': analyzed_data})
+```
+```html
+<!-- Djangoテンプレート -->
+<h1>平均来場者数: {{ analyzed_data }}</h1>
+```
+
+[出力物タイトル]
+作業手順
+[出力物内容]
+1. 上記のサンプルコードを参考に、自分のDjangoプロジェクトにビューを作成します。
+2. ビューでPandasを使ってデータを分析します。
+3. 分析結果をテンプレートに渡します。
+4. テンプレートで分析結果を表示します。
