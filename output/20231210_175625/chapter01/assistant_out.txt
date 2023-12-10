@@ -1,0 +1,60 @@
+[出力物タイトル]
+教材タイトル
+
+[出力物内容]
+"Pythonで始める！DjangoとPandasの基本"
+
+[出力物タイトル]
+教材概要
+
+[出力物内容]
+この教材では、PythonのウェブフレームワークであるDjangoとデータ分析ライブラリであるPandasの基本を学びます。Pythonの環境設定から始め、DjangoとPandasの導入、そして基本的な操作までを学んでいきます。
+
+[出力物タイトル]
+教材テキスト
+
+[出力物内容]
+1. Pythonの環境設定
+Pythonの最新版をインストールしましょう。また、仮想環境を作成し、その中で作業を行います。
+
+2. DjangoとPandasのインストール
+Pythonのパッケージ管理ツールpipを用いて、DjangoとPandasをインストールします。
+
+3. Djangoの基本
+Djangoのプロジェクトの作成方法、アプリケーションの作成方法、モデルの定義とマイグレーション、ビューとテンプレートの作成方法について学びます。
+
+4. Pandasの基本
+Pandasのデータフレームの作成方法、データの読み込みと書き出し、データの選択とフィルタリング、そしてデータの集計方法について学びます。
+
+[出力物タイトル]
+サンプルコード
+
+[出力物内容]
+```
+# Pythonの環境設定
+$ python3 -m venv myenv
+
+# DjangoとPandasのインストール
+$ pip install django pandas
+
+# Djangoの基本
+$ django-admin startproject myproject
+$ cd myproject
+$ python manage.py startapp myapp
+
+# Pandasの基本
+import pandas as pd
+df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
+print(df)
+```
+
+[出力物タイトル]
+作業手順
+
+[出力物内容]
+1. Pythonの環境設定
+2. DjangoとPandasのインストール
+3. Djangoの基本
+4. Pandasの基本
+上記の順番で、提供されたサンプルコードを実行しましょう。各ステップが完了したら、次のステップに進むようにします。
+
