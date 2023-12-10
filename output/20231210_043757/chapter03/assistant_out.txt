@@ -1,0 +1,57 @@
+[出力物タイトル]
+教材タイトル
+
+[出力物内容]
+3. FastAPIを用いたWebAPIの作成
+
+[出力物タイトル]
+教材概要
+
+[出力物内容]
+このモジュールでは、PythonのFastAPIフレームワークを用いてWebAPIを作成します。APIはウェブカメラから取得した果物のデータを受け取り、そのデータをデータベースに保存する機能を持ちます。
+
+[出力物タイトル]
+教材テキスト
+
+[出力物内容]
+1. FastAPIの導入：FastAPIはPythonで書かれた、非常に高速なWebフレームワークです。FastAPIを使用するためには、まずFastAPIをインストールする必要があります。`pip install fastapi`と`pip install uvicorn`を実行してFastAPIとuvicornをインストールします。
+
+2. APIの設計：このAPIはPOSTリクエストを受け取り、受け取ったデータをデータベースに保存します。FastAPIでは、Pythonの型ヒントを用いてリクエストとレスポンスの形式を定義します。
+
+3. データベースの接続：Pythonでデータベース操作を行うためには、SQLAlchemyなどのORMが便利です。今回はSQLAlchemyを使用します。
+
+4. APIの実装：上記の設計に基づいてAPIを実装します。
+
+5. APIのテスト：FastAPIには自動的にAPIのドキュメンテーションを生成する機能があります。このドキュメンテーションを用いてAPIの動作を確認します。
+
+[出力物タイトル]
+サンプルコード
+
+[出力物内容]
+```python
+from fastapi import FastAPI
+from pydantic import BaseModel
+from sqlalchemy import create_engine
+
+app = FastAPI()
+engine = create_engine('sqlite:///app.db')
+
+class Item(BaseModel):
+    name: str
+    color: str
+    condition: str
+
+@app.post("/items/")
+def create_item(item: Item):
+    with engine.connect() as connection:
+        result = connection.execute(f"INSERT INTO items (name, color, condition) VALUES ('{item.name}', '{item.color}', '{item.condition}');")
+```
+
+[出力物タイトル]
+作業手順
+
+[出力物内容]
+1. 上記のサンプルコードを`main.py`という名前のファイルに保存します。
+2. コマンドプロンプトから`uvicorn main:app --reload`を実行します。これにより、FastAPIアプリケーションが起動します。
+3. ブラウザから`http://localhost:8000/docs`にアクセスします。FastAPIにより自動生成されるドキュメンテーションが表示されます。
+4. ドキュメンテーションからPOSTリクエストを送信し、APIが正常に動作することを確認します。
