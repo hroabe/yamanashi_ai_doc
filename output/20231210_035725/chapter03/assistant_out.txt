@@ -1,0 +1,72 @@
+[出力物タイトル]
+教材タイトル
+
+[出力物内容]
+FastAPIでのWebアプリケーションの基本
+
+[出力物タイトル]
+教材概要
+
+[出力物内容]
+この教材では、FastAPIを用いてWebアプリケーションを開発する基本的な手順を学びます。初めに、FastAPIの基本的な特性と設定方法について学び、次にFastAPIを用いて簡単なWebアプリケーションの開発を行います。最後に、FastAPIによるルーティングとリクエスト、レスポンスの基本について学びます。
+
+[出力物タイトル]
+教材テキスト
+
+[出力物内容]
+```
+1. FastAPIの特性と設定方法
+FastAPIはPythonで書かれた、モダンで、高速(高性能)、Webフレームワークで、APIを構築するのに最適です。
+
+2. FastAPIのインストール
+FastAPIをインストールするには、次のコマンドを使用します。
+```python
+pip install fastapi
+```
+3. FastAPIを用いたWebアプリケーションの開発
+FastAPIを用いて、簡単なWebアプリケーションを開発します。
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+```
+4. FastAPIによるルーティングとリクエスト、レスポンスの基本
+FastAPIでは、ルーティングとリクエスト、レスポンスの処理を簡単に行うことができます。
+```python
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: str = None):
+    return {"item_id": item_id, "q": q}
+```
+```
+
+[出力物タイトル]
+サンプルコード
+
+[出力物内容]
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: str = None):
+    return {"item_id": item_id, "q": q}
+```
+
+[出力物タイトル]
+作業手順
+
+[出力物内容]
+1. Pythonがインストールされていることを確認し、FastAPIをインストールします。
+2. 上記のサンプルコードを参考に、自分のローカル環境でFastAPIを用いてWebアプリケーションを開発します。
+3. FastAPIのルーティングとリクエスト、レスポンスの処理の仕方を学びます。
+4. 作成したWebアプリケーションを実際に動かして確認します。
+5. うまく動作したら、FastAPIの基本的な使い方をマスターしたと言えます。
