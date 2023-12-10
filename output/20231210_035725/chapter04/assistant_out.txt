@@ -1,0 +1,44 @@
+[出力物タイトル]
+教材タイトル
+
+[出力物内容]
+4. "PyTorchとFastAPIの連携"
+
+[出力物タイトル]
+教材概要
+
+[出力物内容]
+このセッションでは、Pythonの深層学習ライブラリ「PyTorch」を用いて作成したモデルを、高速なWebフレームワーク「FastAPI」を使ってAPIとして公開する方法について学びます。特に、FastAPIを用いたAPIの設計と、PyTorchモデルのAPI組み込み方法に焦点を当て、両者の連携を理解します。
+
+[出力物タイトル]
+教材テキスト
+
+[出力物内容]
+1. FastAPIの基本的な使い方を学び、APIの設計について理解を深めます。
+2. PyTorchで作成したモデルをFastAPIで公開する方法について学びます。
+3. FastAPIとPyTorchの連携によるAPIのテスト方法について学びます。
+
+[出力物タイトル]
+サンプルコード
+
+[出力物内容]
+```python
+from fastapi import FastAPI
+from pytorch_model import PyTorchModel
+
+app = FastAPI()
+model = PyTorchModel("model.pth")
+
+@app.post("/predict")
+def predict(data: list):
+    prediction = model.predict(data)
+    return {"prediction": prediction}
+```
+
+[出力物タイトル]
+作業手順
+
+[出力物内容]
+1. FastAPIとPyTorchをインストールします。
+2. 上記のサンプルコードを実行します。
+3. Postmanやcurlなどを使って、APIにデータを送信し、予測結果を確認します。
